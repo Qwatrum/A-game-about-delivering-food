@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://5y5gwi42n0tq"]
+
+[ext_resource type="Script" path="res://Player.gd" id="1_k6j3o"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_gbs7q"]
+bounce = 0.5
+
+[sub_resource type="SphereMesh" id="SphereMesh_mnlse"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_vsp8t"]
+
+[node name="Player" type="RigidBody3D"]
+mass = 0.05
+physics_material_override = SubResource("PhysicsMaterial_gbs7q")
+script = ExtResource("1_k6j3o")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
+mesh = SubResource("SphereMesh_mnlse")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
+shape = SubResource("SphereShape3D_vsp8t")
