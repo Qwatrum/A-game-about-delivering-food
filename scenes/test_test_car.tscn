@@ -1,0 +1,61 @@
+[gd_scene load_steps=5 format=3 uid="uid://dckl4lrlbkwtn"]
+
+[ext_resource type="Script" path="res://scenes/player_car.gd" id="1_28372"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_axbg6"]
+size = Vector3(0.5, 0.2, 1)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_5h1p3"]
+points = PackedVector3Array(0.25, 0.1, 0.5, 0.25, -0.1, 0.5, 0.25, 0.1, -0.5, -0.25, 0.1, 0.5, -0.25, -0.1, 0.5, 0.25, -0.1, -0.5, -0.25, 0.1, -0.5, -0.25, -0.1, -0.5)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_oj0t0"]
+top_radius = 0.2
+bottom_radius = 0.2
+height = 0.1
+
+[node name="testTestCar" type="VehicleBody3D"]
+script = ExtResource("1_28372")
+
+[node name="CarBody" type="MeshInstance3D" parent="."]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+mesh = SubResource("BoxMesh_axbg6")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+shape = SubResource("ConvexPolygonShape3D_5h1p3")
+
+[node name="fl_wheel" type="VehicleWheel3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.658471, -0.0966241, 0.819154)
+wheel_radius = 0.2
+wheel_rest_length = 0.07
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="fl_wheel"]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("CylinderMesh_oj0t0")
+
+[node name="fl_wheel2" type="VehicleWheel3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.606719, -0.0966241, 0.819154)
+wheel_radius = 0.2
+wheel_rest_length = 0.07
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="fl_wheel2"]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("CylinderMesh_oj0t0")
+
+[node name="fl_wheel3" type="VehicleWheel3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.606719, -0.0966241, -0.623834)
+wheel_radius = 0.2
+wheel_rest_length = 0.07
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="fl_wheel3"]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("CylinderMesh_oj0t0")
+
+[node name="fl_wheel4" type="VehicleWheel3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.599607, -0.0966241, -0.623834)
+wheel_radius = 0.2
+wheel_rest_length = 0.07
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="fl_wheel4"]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("CylinderMesh_oj0t0")
