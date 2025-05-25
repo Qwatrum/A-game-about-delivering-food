@@ -1,14 +1,11 @@
-[gd_scene load_steps=16 format=3 uid="uid://21n5w1b5co1h"]
+[gd_scene load_steps=15 format=3 uid="uid://cmtqkuyb58di3"]
 
-[ext_resource type="Script" path="res://scenes/player_car.gd" id="1_ffkbw"]
-[ext_resource type="Texture2D" uid="uid://cx07ry81bt8lv" path="res://assets/City Builder Bits/Car Hatchback_citybits_texture.png" id="1_ixkms"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_h448r"]
-size = Vector3(0.5, 0.5, 0.5)
+[ext_resource type="Script" path="res://scenes/player_car.gd" id="1_71ls0"]
+[ext_resource type="Texture2D" uid="uid://cx07ry81bt8lv" path="res://assets/City Builder Bits/Car Hatchback_citybits_texture.png" id="2_7iyld"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jl3nv"]
 resource_name = "citybits_texture"
-albedo_texture = ExtResource("1_ixkms")
+albedo_texture = ExtResource("2_7iyld")
 metallic = 0.4
 roughness = 0.229416
 
@@ -183,78 +180,65 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_6e4cd")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_r7773"]
-size = Vector3(0.364395, 0.250454, 0.643799)
+size = Vector3(0.368386, 0.250454, 0.736996)
 
-[node name="TestCar" type="VehicleBody3D"]
-script = ExtResource("1_ffkbw")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0.318408, 0)
-visible = false
-mesh = SubResource("BoxMesh_h448r")
+[node name="TestCarBig" type="VehicleBody3D"]
+mass = 256.0
+script = ExtResource("1_71ls0")
 
 [node name="front_left_wheel" type="VehicleWheel3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.18, 0, 0.25)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.273027, 0, 0.365335)
 use_as_steering = true
 wheel_radius = 0.07
 wheel_rest_length = 0.07
 suspension_stiffness = 50.0
 
 [node name="car_hatchback_wheel_front_left" type="MeshInstance3D" parent="front_left_wheel"]
-transform = Transform3D(100, 0, 0, 0, -4.37114e-06, 100, 0, -100, -4.37114e-06, 9.64105e-06, 0.00385468, 0.00211434)
+transform = Transform3D(150, 0, 0, 0, -6.55671e-06, 150, 0, -150, -6.55671e-06, 9.64105e-06, 0.00385468, 0.00211434)
 mesh = SubResource("ArrayMesh_n54cu")
 skeleton = NodePath("")
 
 [node name="front_right_wheel" type="VehicleWheel3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.179607, 0, 0.25)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.273144, 0, 0.365335)
 use_as_steering = true
 wheel_radius = 0.07
 wheel_rest_length = 0.07
 suspension_stiffness = 50.0
 
 [node name="car_hatchback_wheel_front_right" type="MeshInstance3D" parent="front_right_wheel"]
-transform = Transform3D(100, 0, 0, 0, -2.38419e-05, 100, 0, -100, -2.38419e-05, -0.000100031, 0.00385468, 0.00211434)
+transform = Transform3D(150, 0, 0, 0, -6.55671e-06, 150, 0, -150, -6.55671e-06, -0.000100031, 0.00385468, 0.00211434)
 mesh = SubResource("ArrayMesh_j4w8p")
 skeleton = NodePath("")
 
 [node name="wheel_rear_left" type="VehicleWheel3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.18, 0, -0.25)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.273, 0, -0.365)
 use_as_traction = true
 wheel_radius = 0.07
 wheel_rest_length = 0.07
 suspension_stiffness = 50.0
 
 [node name="car_hatchback_wheel_rear_left" type="MeshInstance3D" parent="wheel_rear_left"]
-transform = Transform3D(100, 0, 0, 0, -2.38419e-05, 100, 0, -100, -2.38419e-05, 0.00194745, 0.00385456, 0.000314146)
+transform = Transform3D(150, 0, 0, 0, -6.55671e-06, 150, 0, -150, -6.55671e-06, 0.00194745, 0.00385456, 0.000314146)
 mesh = SubResource("ArrayMesh_kk44m")
 skeleton = NodePath("")
 
 [node name="wheel_rear_right" type="VehicleWheel3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.179607, 0, -0.25)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.272823, 0, -0.365)
 use_as_traction = true
 wheel_radius = 0.07
 wheel_rest_length = 0.07
 suspension_stiffness = 50.0
 
 [node name="car_hatchback_wheel_rear_right" type="MeshInstance3D" parent="wheel_rear_right"]
-transform = Transform3D(100, 0, 0, 0, -2.38419e-05, 100, 0, -100, -2.38419e-05, 0.00255752, 0.00385456, -0.000613153)
+transform = Transform3D(150, 0, 0, 0, -6.55671e-06, 150, 0, -150, -6.55671e-06, 0.00255752, 0.00385456, -0.000613153)
 mesh = SubResource("ArrayMesh_4lhk2")
 skeleton = NodePath("")
 
 [node name="car_hatchback" type="MeshInstance3D" parent="."]
-transform = Transform3D(100, 0, 0, 0, -4.37114e-06, 100, 0, -100, -4.37114e-06, 0, 0, 0)
+transform = Transform3D(150, 0, 0, 0, -6.55671e-06, 150, 0, -150, -6.55671e-06, 0, 0, 0)
 mesh = SubResource("ArrayMesh_ay00p")
 skeleton = NodePath("")
 
-[node name="CollisionShape3D3" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.264, 0)
-visible = false
-shape = SubResource("BoxShape3D_r7773")
-disabled = true
-
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(-1, -6.21725e-14, 8.74228e-08, 1.74532e-08, 0.979869, 0.199642, -8.56629e-08, 0.199642, -0.979869, -0.0140939, 0.92992, -2.8838)
-
 [node name="CollisionShape3D4" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000861729, 0.13399, 0.000164121)
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0.00136167, 0.15693, -0.00149059)
 shape = SubResource("BoxShape3D_r7773")
